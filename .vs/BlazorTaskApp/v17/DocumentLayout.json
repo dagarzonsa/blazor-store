@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\david.garzon.MVM\\source\\repos\\BlazorTaskApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B08E1A39-DA2B-4F3C-B2F5-8819E83AFD44}|BlazorTaskApp\\BlazorTaskApp.csproj|c:\\users\\david.garzon.mvm\\source\\repos\\blazortaskapp\\blazortaskapp\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B08E1A39-DA2B-4F3C-B2F5-8819E83AFD44}|BlazorTaskApp\\BlazorTaskApp.csproj|solutionrelative:blazortaskapp\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\david.garzon.MVM\\source\\repos\\BlazorTaskApp\\BlazorTaskApp\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "BlazorTaskApp\\Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\david.garzon.MVM\\source\\repos\\BlazorTaskApp\\BlazorTaskApp\\Pages\\Index.razor",
+              "RelativeToolTip": "BlazorTaskApp\\Pages\\Index.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-29T04:10:26.275Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
