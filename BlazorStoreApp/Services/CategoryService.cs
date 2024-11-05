@@ -9,10 +9,10 @@ namespace BlazorStoreApp.Services
         private readonly HttpClient _httpClient;
         private readonly JsonSerializerOptions _serializerOptions;
 
-        public CategoryService(HttpClient httpClient, JsonSerializerOptions jsonSerializerOptions)
+        public CategoryService(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _serializerOptions = jsonSerializerOptions;
+            _serializerOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true};
         }
 
         public async Task<List<Product>?> GetAsync()

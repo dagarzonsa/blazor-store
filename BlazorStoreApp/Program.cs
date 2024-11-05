@@ -8,6 +8,7 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 var apiRul = builder.Configuration.GetValue<string>("ApiUrl");
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(apiRul)});
 builder.Services.AddScoped<IProduct, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 
