@@ -3,26 +3,26 @@
 @using BlazorStoreApp.Models
 @inject ILogger<Products> logger;
 @inject IProduct productService;
+@inject NavigationManager navigationManager;
 
 <PageTitle>Products</PageTitle>
 
 <h1>Products</h1>
+
+<button class="btn btn-dark" @onclick="@(() => navigationManager.NavigateTo("/addproduct"))">Add product</button>
 
 @if (products.Any())
 {
     <div class="products-container">
         @foreach (var product in products)
         {
-            @if (!product.Images[0].ToString().Contains("[") || !product.Images[0].ToString().Contains("\""))
-            {
-                <div class="card">
-                    <img class="img-top" src="@product.Images[0]" alt="Product" loading="lazy" width="270" height="210" />
-                    <div class="card-body">
-                        <h4><b>@product.Title</b></h4>
-                        <p>@product.Price?.ToString("C")</p>
-                    </div>
+            <div class="card">
+                <img class="img-top" src="@product.Images[0].ToString()" alt="Product" loading="lazy" width="270" height="210" />
+                <div class="card-body">
+                    <h4><b>@product.Title</b></h4>
+                    <p>@product.Price?.ToString("C")</p>
                 </div>
-            }
+            </div>
         }
 
     </div>

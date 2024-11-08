@@ -2,8 +2,8 @@
 
 namespace BlazorStoreApp.Contracts
 {
-    public interface ICategoryService
+    public interface ICategory
     {
-        Task<List<Product>?> GetAsync();
+        Task<List<Category>?> GetAsync();
     }
 }

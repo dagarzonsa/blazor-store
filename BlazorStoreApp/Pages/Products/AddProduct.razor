@@ -1,0 +1,65 @@
+﻿@page "/addproduct"
+@using BlazorStoreApp.Models
+@using BlazorStoreApp.Contracts
+@inject IProduct _productService;
+@inject ICategory _categoryService;
+@inject NavigationManager _navigationManager;
+
+<PageTitle>Products</PageTitle>
+<h1>Add - Product</h1>
+
+<button class="btn btn-dark mb-3" @onclick="@(() => _navigationManager.NavigateTo("/products"))">Go back products</button>
+
+<EditForm Model="@product" OnSubmit="SaveProduct">
+    <div class="row">
+        <div class="col-4 form-group">
+            <label for="title" class="col-form-label">Title</label>
+            <InputText id="title" class="form-control" required @bind-Value="product.Title"></InputText>
+        </div>        
+        <div class="col-2 form-group">
+            <label for="category" class="col-form-label">Category</label>
+            <InputSelect id="category" class="form-control" required @bind-Value="product.CategoryId">
+                <option>Select a category</option>
+                @foreach (var category in categories)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            </InputSelect>
+        </div>
+        <div class="col-4 form-group">
+            <label for="image" class="col-form-label">Image</label>
+            <InputText id="image" class="form-control" required @bind-Value="product.Image"></InputText>
+        </div>
+        <div class="col-2 form-group">
+            <label for="price" class="col-form-label">Price</label>
+            <InputNumber id="price" class="form-control" required @bind-Value="product.Price"></InputNumber>
+        </div>
+        <div class="col-12 form-group">
+            <label for="description" class="col-form-label">Description</label>
+            <InputTextArea id="description" class="form-control" required @bind-Value="product.Description"></InputTextArea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 form-group mt-5">
+            <button class="btn btn-primary" type="submit" >Save product</button>
+        </div>
+    </div>
+
+</EditForm>
+
+@code {
+    private Product product = new();
+    private List<Category> categories = new List<Category>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        categories = await _categoryService.GetAsync();
+    }
+
+    private async Task SaveProduct()
+    {
+        product.Images = new string[1] { product.Image };
+        await _productService.AddAsync(product);
+        _navigationManager.NavigateTo("/products");
+    }
+}

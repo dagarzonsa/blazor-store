@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace BlazorStoreApp.Services
 {
-    public class CategoryService:ICategoryService
+    public class CategoryService:ICategory
     {
         private readonly HttpClient _httpClient;
         private readonly JsonSerializerOptions _serializerOptions;
@@ -15,7 +15,7 @@ namespace BlazorStoreApp.Services
             _serializerOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true};
         }
 
-        public async Task<List<Product>?> GetAsync()
+        public async Task<List<Category>?> GetAsync()
         {
             var response = await _httpClient.GetAsync("categories");
             var content = await response.Content.ReadAsStringAsync();
@@ -24,7 +24,7 @@ namespace BlazorStoreApp.Services
             {
                 throw new ApplicationException(content);
             }
-            return await JsonSerializer.DeserializeAsync<List<Product>>(await response.Content.ReadAsStreamAsync(), _serializerOptions);
+            return await JsonSerializer.DeserializeAsync<List<Category>>(await response.Content.ReadAsStreamAsync(), _serializerOptions);
         }
     }
 }
