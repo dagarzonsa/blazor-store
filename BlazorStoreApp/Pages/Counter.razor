@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <h4><b>@product.Title</b></h4>
                     <p>@product.Price?.ToString("C")</p>
-                    <button class="btn btn-danger" @onclick="() => RemoveFromCart(product.Id)">Eliminar</button>
+                    <button class="btn btn-danger" @onclick="() => RemoveFromCart(product.Id)">Remove</button>
                 </div>
             </div>
         }
