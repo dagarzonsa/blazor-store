@@ -21,7 +21,14 @@ The interface is responsive, visually appealing, and uses toast notifications fo
 
 ## 🖼️ Screenshots
 
-> _Add screenshots of the products view, cart, and add product form to impress recruiters._
+ ![Products View](screenshots/productsj.jpg)
+  *Main products page*
+
+  ![Cart View](screenshots/cart.jgp)
+  *Shopping cart in action*
+
+  ![Add Product](screenshots/add_product.jgp)
+  *Admin: Add new product*
 
 ## 🛠️ Technologies Used
 - [.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
