@@ -21,13 +21,13 @@ The interface is responsive, visually appealing, and uses toast notifications fo
 
 ## 🖼️ Screenshots
 
- ![Products View](screenshots/productsj.jpg)
+ ![Products View](screenshots/products.jpg)
   *Main products page*
 
-  ![Cart View](screenshots/cart.jgp)
+  ![Cart View](screenshots/cart.jpg)
   *Shopping cart in action*
 
-  ![Add Product](screenshots/add_product.jgp)
+  ![Add Product](screenshots/add_product.jpg)
   *Admin: Add new product*
 
 ## 🛠️ Technologies Used
