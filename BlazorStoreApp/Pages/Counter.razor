@@ -1,18 +1,57 @@
-﻿@page "/counter"
+﻿@page "/cart"
 
-<PageTitle>Counter</PageTitle>
+@using BlazorStoreApp.Models;
+@using BlazorStoreApp.Services
 
-<h1>Counter</h1>
+@inject CartService cartService
 
-<p role="status">Current count: @currentCount</p>
+<PageTitle>Cart</PageTitle>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<h1>Shopping Cart</h1>
+
+@if (products != null && products.Any())
+{
+    <p role="status">Current Items: @products.Count</p>
+    <button class="btn btn-primary" @onclick="ClearCart">Empty cart</button>
+
+    <div class="products-container">
+        @foreach (var product in products)
+        {
+            <div class="card">
+                <img class="img-top" src="@product.Images[0].ToString()" alt="Product" loading="lazy" width="270" height="210" />
+                <div class="card-body">
+                    <h4><b>@product.Title</b></h4>
+                    <p>@product.Price?.ToString("C")</p>
+                    <button class="btn btn-danger" @onclick="() => RemoveFromCart(product.Id)">Eliminar</button>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>There aren't any items in shopping cart.</p>
+}
 
 @code {
-    private int currentCount = 0;
+    private List<Product>? products;
 
-    private void IncrementCount()
+    protected override void OnInitialized()
     {
-        currentCount++;
+        products = cartService.GetAsync();
+    }
+
+    private void RemoveFromCart(long productId)
+    {
+        cartService.DeleteAsync((int)productId);
+        products = cartService.GetAsync();
+        StateHasChanged();
+    }
+
+    private void ClearCart()
+    {
+        cartService.ClearAsync();
+        products = cartService.GetAsync();
+        StateHasChanged();
     }
 }

@@ -11,5 +11,7 @@ var apiRul = builder.Configuration.GetValue<string>("ApiUrl");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(apiRul)});
 builder.Services.AddScoped<IProduct, ProductService>();
 builder.Services.AddScoped<ICategory, CategoryService>();
+builder.Services.AddScoped<ICart, CartService>();
+builder.Services.AddSingleton<CartService>();
 
 await builder.Build().RunAsync();

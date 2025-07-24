@@ -1,9 +1,11 @@
 ﻿@page "/products"
 @using BlazorStoreApp.Contracts
 @using BlazorStoreApp.Models
+@using BlazorStoreApp.Services
 @inject ILogger<Products> logger;
 @inject IProduct productService;
 @inject NavigationManager navigationManager;
+@inject CartService cartService
 
 <PageTitle>Products</PageTitle>
 
@@ -21,6 +23,7 @@
                 <div class="card-body">
                     <h4><b>@product.Title</b></h4>
                     <p>@product.Price?.ToString("C")</p>
+                    <button class="btn btn-success" @onclick="() => AddToCart(product)">Agregar al carrito</button>
                 </div>
             </div>
         }
@@ -47,4 +50,8 @@ else
         return await productService.GetAsync();
     }
 
+    private void AddToCart(Product product)
+    {
+        cartService.AddAsync(product);
+    }
 }
